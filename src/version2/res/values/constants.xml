@@ -1,0 +1,6 @@
+
+    <resources>
+        <color name="warning_color">#FFFF00</color>
+        <color name="nearEnd_color">#FF0000</color>
+        <color name="ok_color">#00FF00</color>
+    </resources>
