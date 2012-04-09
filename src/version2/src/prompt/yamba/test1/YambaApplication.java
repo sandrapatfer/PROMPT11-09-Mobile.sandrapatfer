@@ -1,5 +1,6 @@
 package prompt.yamba.test1;
 
+import java.util.List;
 import winterwell.jtwitter.Twitter;
 import android.app.AlarmManager;
 import android.app.Application;
@@ -10,11 +11,15 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import winterwell.jtwitter.Twitter.Status;
 
 public class YambaApplication extends Application implements OnSharedPreferenceChangeListener {
 	
 	private SharedPreferences _prefs;
 	private volatile Twitter _twitter;
+	private volatile PendingIntent activeIntent;
+	
+	public volatile static List<Status> TweetList;
 	
 	public static final String TAG = "Yamba";
 
@@ -30,6 +35,14 @@ public class YambaApplication extends Application implements OnSharedPreferenceC
 	{
 		Log.d(TAG, "onSharedPreferenceChanged");
 		_twitter = null;
+		
+		if (activeIntent != null && !_prefs.getBoolean("timeline_automatic", false))
+		{
+			Log.d(TAG, "Stopping alarm cycle");
+			AlarmManager mgr = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+			mgr.cancel(activeIntent);
+			activeIntent = null;
+		}
 	}
 
 	private void Init()
@@ -37,6 +50,9 @@ public class YambaApplication extends Application implements OnSharedPreferenceC
 		_prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		_prefs.registerOnSharedPreferenceChangeListener(this);
 		_twitter = null;
+		activeIntent = null;
+		
+		TweetList = null;
 	}
 	
 	synchronized public Twitter GetTwitterObject()
@@ -57,25 +73,25 @@ public class YambaApplication extends Application implements OnSharedPreferenceC
 		Log.d(TAG, "NetworkChange: " + isNetworkUp);
 		if (isNetworkUp)
 		{
-			// TODO read prefs
-			
-			Log.d(TAG, "Starting alarm cycle");
-			AlarmManager mgr = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-			Intent msg = new Intent();
-			msg.setClass(this, TimelinePullService.class);
-			msg.setAction(TimelinePullService.Action_Pull_Now);
-			PendingIntent operation = PendingIntent.getService(this, -1, msg, PendingIntent.FLAG_UPDATE_CURRENT);
-			mgr.setInexactRepeating(AlarmManager.RTC, System.currentTimeMillis(), 60000, operation);
+			if (_prefs.getBoolean("timeline_automatic", false))
+			{
+				Log.d(TAG, "Starting alarm cycle");
+				AlarmManager mgr = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+				Intent msg = new Intent();
+				msg.setClass(this, TimelinePullService.class);
+				msg.setAction(TimelinePullService.Action_Pull_Now);
+				activeIntent = PendingIntent.getService(this, -1, msg, PendingIntent.FLAG_UPDATE_CURRENT);
+				
+				int interval = 60000;// _prefs.getString("timeline_update_interval", "60");
+				mgr.setInexactRepeating(AlarmManager.RTC, System.currentTimeMillis(), interval, activeIntent);
+			}
 		}
-		else
+		else if (activeIntent != null)
 		{
 			Log.d(TAG, "Stopping alarm cycle");
 			AlarmManager mgr = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-			Intent msg = new Intent();
-			msg.setClass(this, TimelinePullService.class);
-			msg.setAction(TimelinePullService.Action_Pull_Now);
-			PendingIntent operation = PendingIntent.getService(this, -1, msg, PendingIntent.FLAG_UPDATE_CURRENT);
-			mgr.cancel(operation);
+			mgr.cancel(activeIntent);
+			activeIntent = null;
 		}
 	}
 }

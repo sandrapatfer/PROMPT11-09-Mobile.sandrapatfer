@@ -1,0 +1,42 @@
+package prompt.yamba.activities;
+
+import prompt.yamba.R;
+import prompt.yamba.YambaApplication;
+import prompt.yamba.providers.TimelineProviderContract;
+import android.app.Activity;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
+
+public class StatusViewActivity extends BaseActivity
+{
+	private YambaApplication _application;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		
+		_application = (YambaApplication)getApplication();		
+		Log.d(YambaApplication.TAG, "StatusViewActivity.onCreate");
+		
+		Uri itemUri = getIntent().getData();
+		
+        setContentView(R.layout.status_view);
+        TextView userView = (TextView)findViewById(R.id.userView);
+        TextView statusTextView = (TextView)findViewById(R.id.statusTextView);
+		
+		Cursor cursor = getContentResolver().query(itemUri,
+			new String[] {TimelineProviderContract.COL_ID,
+				TimelineProviderContract.COL_USER, TimelineProviderContract.COL_TEXT},
+			null, null, null);
+		cursor.moveToFirst();
+		int userIndex = cursor.getColumnIndex(TimelineProviderContract.COL_USER);
+		String userText = cursor.getString(userIndex); 
+		userView.setText(userText);
+		statusTextView.setText(cursor.getString(cursor.getColumnIndex(TimelineProviderContract.COL_TEXT)));
+	}
+
+}

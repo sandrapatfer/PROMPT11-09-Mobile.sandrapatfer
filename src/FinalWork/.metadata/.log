@@ -1,0 +1,30 @@
+!SESSION 2012-04-05 01:40:28.753 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_03
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=pt_PT
+Command-line arguments:  -os win32 -ws win32 -arch x86 -data C:\SPF\prompt11\uc09\PROMPT11-09-Mobile.sandrapatfer\src\FinalWork
+
+!ENTRY com.android.ide.eclipse.ddms 4 0 2012-04-05 01:40:33.371
+!MESSAGE DDMS files not found: C:\SPF\prompt11\uc09\eclipse\platform-tools\adb.exe C:\SPF\prompt11\uc09\eclipse\tools\hprof-conv.exe C:\SPF\prompt11\uc09\eclipse\tools\traceview.bat 
+
+!ENTRY org.eclipse.ui 4 4 2012-04-05 01:43:20.971
+!MESSAGE Invalid preference page path: XML Syntax
+!SESSION 2012-04-05 01:46:14.672 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_03
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=pt_PT
+Command-line arguments:  -os win32 -ws win32 -arch x86 -data C:\SPF\prompt11\uc09\PROMPT11-09-Mobile.sandrapatfer\src\FinalWork
+
+!ENTRY org.eclipse.ui 4 4 2012-04-05 01:49:26.228
+!MESSAGE Invalid preference page path: XML Syntax
+!SESSION 2012-04-08 17:09:31.273 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_03
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=pt_PT
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.ui 4 4 2012-04-09 01:20:30.563
+!MESSAGE Invalid preference page path: XML Syntax

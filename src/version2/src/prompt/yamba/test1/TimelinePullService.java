@@ -1,15 +1,10 @@
 package prompt.yamba.test1;
 
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import winterwell.jtwitter.Twitter;
 import winterwell.jtwitter.Twitter.Status;
 import android.app.IntentService;
-import android.app.Service;
 import android.content.Intent;
-import android.os.IBinder;
 import android.util.Log;
 
 public class TimelinePullService extends IntentService
@@ -39,10 +34,7 @@ public class TimelinePullService extends IntentService
 			Twitter t = _application.GetTwitterObject();
 			List<Status> list = t.getPublicTimeline();
 			Log.d(YambaApplication.TAG, String.format("New list size: %d", list.size()));
-	/*		for (Status status: list)
-			{
-				Log.d(YambaApplication.TAG, String.format("%s: %s", status.user.name, status.text));
-			}*/
+			YambaApplication.TweetList = list;
 		}
 		catch(Exception ex)
 		{

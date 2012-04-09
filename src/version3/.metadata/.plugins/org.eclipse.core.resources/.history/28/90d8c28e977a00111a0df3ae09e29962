@@ -1,0 +1,6 @@
+package prompt.yamba.stores;
+
+public class TimelinePersistentStore
+{
+
+}

@@ -10,6 +10,11 @@
         android:title="@string/pull_now_title" 
         android:icon="@android:drawable/ic_popup_sync">
     </item>
-    
+    <item 
+        android:id="@+id/timeline_menu"
+        android:title="@string/timeline_title" 
+        android:icon="@android:drawable/ic_dialog_info">
+    </item>
+   
 
 </menu>

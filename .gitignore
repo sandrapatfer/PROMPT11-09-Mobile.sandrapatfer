@@ -11,6 +11,7 @@
 *.trx
 *.dat
 *.exe
+R.java
 .DS_Store
 deploy/
 build/

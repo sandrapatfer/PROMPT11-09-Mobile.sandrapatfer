@@ -1,0 +1,73 @@
+package prompt.yamba;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicReference;
+
+import android.os.Handler;
+import android.util.Log;
+
+import winterwell.jtwitter.Twitter.Status;
+
+public class TimelineStore implements Iterable<Status>
+{
+	private AtomicReference<ConcurrentHashMap<Long, Status>> _store;
+	
+	public TimelineStore()
+	{
+		_store = new AtomicReference<ConcurrentHashMap<Long, Status>>();
+		_store.set(new ConcurrentHashMap<Long, Status>());
+	}
+
+	public Iterator<Status> iterator()
+	{
+		return _store.get().values().iterator();
+	}
+	
+	public Status Get(long id)
+	{
+		return _store.get().get(id);
+	}
+	
+	public void Add(List<Status> list)
+	{
+//		Map<Long, Status> newStore = new Map<Long, Status>(_store.get());
+		
+		// just replace the whole list
+		ConcurrentHashMap<Long, Status> newStore = new ConcurrentHashMap<Long, Status>();
+		for (Status s : list)
+		{
+			newStore.put(s.getId(), s);
+		}
+		_store.set(newStore);
+		
+		//  fire event
+		if (_observer != null)
+		{
+			_listenerHandler.post(new Runnable()
+			{
+				public void run()
+				{
+					Log.d(YambaApplication.TAG, "TimelineStore (sending event)");
+					_observer.onEvent();
+				};
+			});
+		}	
+	}
+	
+	private Observer _observer;
+	private Handler _listenerHandler;
+	
+	public void AddListener(Handler handler, Observer observer)
+	{
+		_observer = observer;
+		_listenerHandler = handler;
+	}
+	
+	public interface Observer
+	{
+		void onEvent();
+	}
+}

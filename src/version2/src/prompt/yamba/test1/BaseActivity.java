@@ -40,6 +40,12 @@ public class BaseActivity extends Activity {
 			return true;
 		}
 		
+		if (item.getItemId() == R.id.timeline_menu)
+		{
+			startActivity(new Intent(this, TimelineViewActivity.class));
+			return true;
+		}
+		
 		return true;
 	}
 

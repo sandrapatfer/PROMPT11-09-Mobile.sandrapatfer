@@ -14,8 +14,11 @@
     <string name="prefs_site_url_title">URL</string>
     <string name="prefs_site_url_summary">The URL of base API</string>
     <string name="prefs_title">Preferences</string>
-    <string name="prefs_timeline_service_up_title">Timeline Service Active</string>
+    <string name="prefs_timeline_automatic_title">Automatic Update</string>
     <string name="prefs_timeline_service_up_summary">The service to get the time line is active</string>
     <string name="pull_now_title">Pull Now</string>
+    <string name="prefs_category_timeline_update">Timeline Update</string>
+    <string name="prefs_interval_title">Update Interval</string>
+    <string name="timeline_title">Show Timeline</string>
     
 </resources>

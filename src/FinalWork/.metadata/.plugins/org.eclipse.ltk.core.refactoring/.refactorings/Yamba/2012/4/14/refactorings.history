@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract method &apos;private void StartAlarmCycle()&apos; from &apos;prompt.yamba.YambaApplication.NetworkChange()&apos; to &apos;prompt.yamba.YambaApplication&apos;&#x0D;&#x0A;- Original project: &apos;Yamba&apos;&#x0D;&#x0A;- Method name: &apos;StartAlarmCycle&apos;&#x0D;&#x0A;- Destination type: &apos;prompt.yamba.YambaApplication&apos;&#x0D;&#x0A;- Declared visibility: &apos;private&apos;" comments="false" description="Extract method &apos;StartAlarmCycle&apos;" destination="0" exceptions="false" flags="786434" id="org.eclipse.jdt.ui.extract.method" input="/src&lt;prompt.yamba{YambaApplication.java" name="StartAlarmCycle" replace="false" selection="2553 556" stamp="1333929145356" version="1.0" visibility="2"/>
+</session>

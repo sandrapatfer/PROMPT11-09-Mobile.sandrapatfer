@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Oi Mundo, YambaActivity!</string>
+    <string name="app_name">Yamba</string>
+    <string name="title">Yamba (PT)</string>
+    <string name="button_label">Submeter</string>
+
+    <!-- Preferences strings -->
+    <string name="prefs_username_title">User</string>
+    <string name="prefs_username_summary">O user name</string>
+	<string name="prefs_password_title">Password</string>
+   	<string name="prefs_password_summary">A password</string>
+    <string name="prefs_site_url_title">URL</string>
+    <string name="prefs_site_url_summary">O URL da API</string>
+    
+</resources>
