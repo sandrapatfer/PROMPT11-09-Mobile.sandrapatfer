@@ -3,14 +3,7 @@ package prompt.yamba.services;
 import prompt.yamba.YambaApplication;
 import winterwell.jtwitter.Twitter;
 import android.app.IntentService;
-import android.app.Service;
 import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.IBinder;
-import android.os.Message;
-import android.widget.Toast;
 
 public class UpdateStatusService extends IntentService {
 

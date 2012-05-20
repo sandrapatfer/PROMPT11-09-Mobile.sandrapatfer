@@ -36,6 +36,7 @@ public class StatusViewActivity extends Activity
 			userView.setText(userText);
 			statusTextView.setText(cursor.getString(cursor.getColumnIndex(TimelineProviderContract.COL_TEXT)));
 		}
+		// TODO???
 	}
 
 }

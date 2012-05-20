@@ -2,9 +2,6 @@ package prompt.yamba.activities;
 
 import prompt.yamba.R;
 import prompt.yamba.YambaApplication;
-import prompt.yamba.R.color;
-import prompt.yamba.R.id;
-import prompt.yamba.R.layout;
 import prompt.yamba.services.UpdateStatusService;
 import android.content.Intent;
 import android.content.res.Resources;

@@ -1,8 +1,6 @@
 package prompt.yamba.activities;
 
 import prompt.yamba.R;
-import prompt.yamba.R.id;
-import prompt.yamba.R.menu;
 import prompt.yamba.services.TimelinePullService;
 import android.app.Activity;
 import android.content.Intent;

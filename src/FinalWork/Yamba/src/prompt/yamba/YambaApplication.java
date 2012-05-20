@@ -1,7 +1,5 @@
 package prompt.yamba;
 
-import java.util.List;
-
 import prompt.yamba.providers.TimelineProviderContract;
 import prompt.yamba.services.TimelinePullService;
 import prompt.yamba.stores.TimelinePersistentStore;
@@ -16,7 +14,6 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import winterwell.jtwitter.Twitter.Status;
 
 public class YambaApplication extends Application implements OnSharedPreferenceChangeListener {
 	

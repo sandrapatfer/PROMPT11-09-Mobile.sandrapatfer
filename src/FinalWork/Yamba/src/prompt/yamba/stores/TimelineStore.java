@@ -2,14 +2,8 @@ package prompt.yamba.stores;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicReference;
-
-import prompt.yamba.YambaApplication;
-
-import android.os.Handler;
-import android.util.Log;
 
 import winterwell.jtwitter.Twitter.Status;
 

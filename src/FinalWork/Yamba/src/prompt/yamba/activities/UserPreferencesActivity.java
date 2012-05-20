@@ -1,7 +1,6 @@
 package prompt.yamba.activities;
 
 import prompt.yamba.R;
-import prompt.yamba.R.xml;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
