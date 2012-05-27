@@ -30,15 +30,7 @@ public class UpdateStatusService extends IntentService {
 		if (t != null)
 		{
 			Log.d(YambaApplication.TAG, "Before sending message");
-			try
-			{
-				t.updateStatus(intent.getStringExtra(IntentMessageKey));
-			}
-			catch (Exception e)
-			{
-				Log.e(YambaApplication.TAG, "Error updating status");
-				// somehow this should show an error message to the user interface
-			}
+			t.updateStatus(intent.getStringExtra(IntentMessageKey));
 		}
 	}
 	

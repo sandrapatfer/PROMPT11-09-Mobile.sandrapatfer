@@ -37,7 +37,6 @@ public class UpdateStatusService extends IntentService {
 			catch (Exception e)
 			{
 				Log.e(YambaApplication.TAG, "Error updating status");
-				// somehow this should show an error message to the user interface
 			}
 		}
 	}
